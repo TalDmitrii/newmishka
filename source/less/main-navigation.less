@@ -1,0 +1,156 @@
+.main-navigation {
+  position: relative;
+}
+
+.main-navigation__toggle {
+  width: 21px;
+  height: 20px;
+  position: absolute;
+  top: 29px;
+  right: 30px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.main-navigation--closed .main-navigation__toggle::before {
+  width: 20px;
+  height: 2px;
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+
+  background-color: #221f1f;
+  box-shadow: 0 6px 0 0 #221f1f, 0 -6px 0 0 #221f1f;
+}
+
+.main-navigation--opened .main-navigation__toggle {
+  &::before,
+  &::after {
+    width: 27px;
+    height: 2px;
+    content: "";
+    position: absolute;
+    left: 0;
+
+    background-color: #221f1f;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.main-navigation__list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation__item {
+  box-shadow: 0 1px 0 #ececec;
+}
+
+.main-navigation__item a {
+  display: block;
+
+  color: #000000;
+
+  padding-top: 32px;
+  padding-bottom: 30px;
+  padding-left: 76px;
+
+  text-decoration: none;
+}
+
+.main-navigation__item .button-basket {
+  padding-left: 30px;
+}
+
+.main-navigation__item a[href] {
+  &:hover {
+    color: fade(#000000, 60%);
+  }
+
+  &:active {
+    color: fade(#000000, 30%);
+  }
+}
+
+.main-navigation__delivery {
+  order: 10;
+
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+  color: @grey-color;
+
+  margin-left: auto;
+  margin-right: 50px;
+  padding-top: 18px;
+}
+
+@media (min-width: @tablet-width) {
+  .main-navigation {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main-navigation__list {
+    display: flex;
+  }
+
+  .main-navigation__item a {
+    display: flex;
+
+    padding: 0;
+  }
+
+  .main-navigation__toggle {
+    display: none;
+  }
+
+  .main-navigation .button-basket {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .main-navigation__delivery {
+    z-index: 10;
+  }
+}
+
+@media (max-width: @mobile-width-only) {
+  .main-navigation--closed .site-navigation {
+    display: none;
+  }
+
+  .main-navigation--closed .user-navigation {
+    display: none;
+  }
+
+  .main-navigation--nojs .site-navigation {
+    display: block;
+  }
+
+  .main-navigation--nojs .user-navigation {
+    display: block;
+  }
+
+  .main-navigation--nojs .main-navigation__toggle {
+    display: none;
+  }
+}
+
+@media (max-width: @tablet-width - 1px) {
+  .main-navigation__delivery {
+    display: none;
+  }
+}

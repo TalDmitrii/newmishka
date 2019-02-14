@@ -1,0 +1,140 @@
+.contacts {
+  position: relative;
+
+  color: @grey-color;
+  font-weight: 400;
+
+  padding-top: 38px;
+  padding-bottom: 37px;
+  padding-left: 28px;
+}
+
+.contacts__header {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #000000;
+
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.contacts__link {
+  display: inline-block;
+  vertical-align: baseline;
+
+  box-shadow: 0 1px 0 #46c1ae;
+}
+
+.contacts__link:hover,
+.contacts__link:focus {
+  color: #46c1ae;
+}
+
+.contacts__link:active {
+  color: fade(#46c1ae, 30%);
+
+  box-shadow: none;
+}
+
+.contacts__table {
+  display: table;
+
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.contacts__tr {
+  display: table-row;
+
+  margin-bottom: 25px;
+}
+
+.contacts__tr--2 .contacts__td {
+  padding-top: 30px;
+}
+
+.contacts__td {
+  display: table-cell;
+
+  padding: 0;
+  padding-right: 30px;
+}
+
+@media (min-width: @tablet-width) {
+  .contacts {
+    padding-bottom: 32px;
+    padding-top: 62px;
+    padding-left: 47px;
+
+    &::after {
+      width: 47px;
+      height: 81px;
+      content: "";
+      position: absolute;
+
+      top: 47px;
+      right: 53px;
+
+      background-image: url("../img/icon-flag.svg");
+      background-repeat: no-repeat;
+    }
+  }
+
+  .contacts__table {
+    font-size: 17px;
+  }
+
+  .contacts__td {
+    padding-right: 27px;
+  }
+
+  .contacts__td br:nth-child(2) {
+    display: none;
+  }
+
+  .contacts__tr--2 .contacts__td {
+    padding-top: 0;
+  }
+
+  .contacts__header {
+    .heading-tablet();
+
+    margin-bottom: 48px;
+  }
+}
+
+@media (min-width: @tablet-width) and (max-width: @desktop-width) {
+  .contacts__table {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contacts__tr {
+    display: flex;
+
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .contacts {
+    padding-top: 73px;
+    padding-bottom: 0;
+
+    &::after {
+      top: 63px;
+      left: -61px;
+    }
+  }
+
+  .contacts__header {
+    .heading-desktop();
+
+    margin-bottom: 48px;
+  }
+
+  .contacts__tr--2 .contacts__td {
+    padding-top: 30px;
+  }
+}
